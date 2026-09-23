@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Blood Bank System</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">🩸</div>
+                <span class="logo-text">Admin Dashboard</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-refresh" onclick="loadAllData()">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Refresh Data</span>
+                </button>
+                <a href="admin-index.html" class="btn-home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+        <div class="container">
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card stat-donors">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-value" id="donorCount">0</h3>
+                        <p class="stat-label">Registered Donors</p>
+                    </div>
+                </div>
+                <div class="stat-card stat-requests">
+                    <div class="stat-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-value" id="requestCount">0</h3>
+                        <p class="stat-label">Blood Requests</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donors Section -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-users"></i>
+                        <h3>Registered Donors</h3>
+                    </div>
+                    <div class="section-badge">
+                        <span id="donorCountBadge">0</span> Total
+                    </div>
+                </div>
+                <div class="section-body">
+                    <ul id="donorList" class="data-list">
+                        <li class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <span>Loading donors...</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Blood Requests Section -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-tint"></i>
+                        <h3>Blood Requests</h3>
+                    </div>
+                    <div class="section-badge">
+                        <span id="requestCountBadge">0</span> Total
+                    </div>
+                </div>
+                <div class="section-body">
+                    <ul id="requestList" class="data-list">
+                        <li class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <span>Loading requests...</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/api.js"></script>
+    <script src="../js/admin-dashboard.js"></script>
+
+</body>
+</html>

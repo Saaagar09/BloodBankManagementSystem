@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Blood Bank System</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/notifications.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">🩸</div>
+                <span class="logo-text">LifeStream</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-back" onclick="window.history.back()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+        <div class="container">
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="header-left">
+                    <div class="page-icon-wrapper">
+                        <div class="page-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <span class="notification-badge" id="unreadBadge">0</span>
+                    </div>
+                    <div class="header-text">
+                        <h1 class="page-title">Notifications</h1>
+                        <p class="page-subtitle">Stay updated with your latest activities</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-action btn-mark-read" onclick="markAllAsRead()">
+                        <i class="fas fa-check-double"></i>
+                        <span>Mark all as read</span>
+                    </button>
+                    <button class="btn-action btn-clear" onclick="clearAll()">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Clear all</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="tab-btn active" onclick="filterNotifications('all')" data-filter="all">
+                    <i class="fas fa-inbox"></i>
+                    <span>All</span>
+                    <span class="tab-count" id="allCount">0</span>
+                </button>
+                <button class="tab-btn" onclick="filterNotifications('unread')" data-filter="unread">
+                    <i class="fas fa-bell"></i>
+                    <span>Unread</span>
+                    <span class="tab-count" id="unreadCount">0</span>
+                </button>
+                <button class="tab-btn" onclick="filterNotifications('important')" data-filter="important">
+                    <i class="fas fa-star"></i>
+                    <span>Important</span>
+                    <span class="tab-count" id="importantCount">0</span>
+                </button>
+            </div>
+
+            <!-- Notifications List -->
+            <div class="notifications-section">
+                <div id="notificationList" class="notification-list">
+                    <!-- Loading State -->
+                    <div class="loading-state">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Loading notifications...</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/api.js"></script>
+    <script src="../js/notifications.js"></script>
+
+</body>
+</html>

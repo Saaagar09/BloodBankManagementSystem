@@ -1,0 +1,34 @@
+# ==============================
+# IntelliJ IDEA
+# ==============================
+.idea/
+*.iml
+/shelf/
+/Backend/.idea/workspace.xml
+/httpRequests/
+/queries/
+/dataSources/
+/dataSources.local.xml
+
+# ==============================
+# Maven
+# ==============================
+target/
+
+# ==============================
+# VS Code
+# ==============================
+.vscode/
+
+# ==============================
+# Environment / Secrets
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# OS files
+# ==============================
+.DS_Store
+Thumbs.db

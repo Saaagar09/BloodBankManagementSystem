@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Blood - Blood Bank System</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/request.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <span class="blood-drop">🩸</span>
+        <span class="logo-text">LifeStream</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="donor.html" class="nav-link">Donate</a>
+        <a href="request.html" class="nav-link active">Request</a>
+        <a href="admin.html" id="adminNav" class="nav-link">Admin</a>
+      </nav>
+      <div class="auth-buttons">
+        <a href="index.html" class="btn-auth btn-back">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Request Blood</span>
+      </div>
+      <h1 class="page-title">
+        <span class="icon-circle">🆘</span>
+        Request Blood for Emergency
+      </h1>
+      <p class="page-subtitle">Get the help you need quickly. Submit your blood request and we'll connect you with donors.</p>
+    </div>
+  </section>
+
+  <!-- Request Form Section -->
+  <section class="form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        
+        <!-- Info Sidebar -->
+        <div class="form-sidebar">
+          <!-- Emergency Alert -->
+          <div class="emergency-alert">
+            <div class="alert-icon">🚨</div>
+            <h3>Emergency?</h3>
+            <p>For urgent blood requirements, call our 24/7 helpline</p>
+            <a href="tel:911" class="emergency-btn">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M2 3C2 2.44772 2.44772 2 3 2H5.15287C5.64171 2 6.0589 2.35341 6.13927 2.8356L6.87858 7.27147C6.95075 7.70451 6.73206 8.13397 6.3394 8.3303L4.79126 9.10437C5.90756 11.8783 8.12168 14.0924 10.8956 15.2087L11.6697 13.6606C11.866 13.2679 12.2955 13.0492 12.7285 13.1214L17.1644 13.8607C17.6466 13.9411 18 14.3583 18 14.8471V17C18 17.5523 17.5523 18 17 18H15C7.8203 18 2 12.1797 2 5V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Call 911
+            </a>
+          </div>
+
+          <!-- Request Process -->
+          <div class="info-card">
+            <div class="info-icon">📝</div>
+            <h3>Request Process</h3>
+            <ol class="process-list">
+              <li>
+                <span class="step-number">1</span>
+                <span class="step-text">Fill the request form</span>
+              </li>
+              <li>
+                <span class="step-number">2</span>
+                <span class="step-text">System finds matching donors</span>
+              </li>
+              <li>
+                <span class="step-number">3</span>
+                <span class="step-text">Donors are notified</span>
+              </li>
+              <li>
+                <span class="step-number">4</span>
+                <span class="step-text">You receive donor contacts</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Important Info -->
+          <div class="info-card important-info">
+            <div class="info-icon">⚠️</div>
+            <h3>Important Information</h3>
+            <ul class="info-list">
+              <li>Requests are processed 24/7</li>
+              <li>Average response time: 30 mins</li>
+              <li>Blood screening takes 24-48 hours</li>
+              <li>Keep emergency contacts ready</li>
+            </ul>
+          </div>
+
+          <!-- Help Box -->
+          <div class="help-box">
+            <h4>Need Assistance?</h4>
+            <p>Our support team is here to help</p>
+            <a href="tel:" class="help-link">📞 +91 XXXXXXXXXX</a>
+            <a href="mailto:help@lifestream.com" class="help-link">📧 help@lifestream.com</a>
+          </div>
+        </div>
+
+        <!-- Request Form -->
+        <div class="form-container">
+          <div class="form-header">
+            <h2>Blood Request Form</h2>
+            <p>Please fill in all required fields marked with *</p>
+          </div>
+
+          <!-- Message Display -->
+          <div id="message" class="message-box" style="display: none;"></div>
+
+          <form id="requestForm" class="request-form">
+            
+            <!-- Patient Information Section -->
+            <div class="form-section-title">
+              <span class="section-icon">🏥</span>
+              <h3>Patient Information</h3>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="recipientName" class="form-label">
+                  Patient Name <span class="required">*</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-icon">👤</span>
+                  <input 
+                    type="text" 
+                    id="recipientName" 
+                    class="form-input"
+                    placeholder="Enter patient's full name"
+                    required
+                  >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="age" class="form-label">
+                  Age <span class="required">*</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-icon">🎂</span>
+                  <input 
+                    type="number" 
+                    id="age" 
+                    class="form-input"
+                    min="18" 
+                    placeholder="Patient's age"
+                    required
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phoneNumber" class="form-label">
+                  Phone Number <span class="required">*</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-icon">📱</span>
+                  <input 
+                    type="text" 
+                    id="phoneNumber" 
+                    class="form-input"
+                    pattern="[0-9]{10}" 
+                    maxlength="10"
+                    placeholder="10-digit mobile number"
+                    required
+                  >
+                </div>
+                <small class="input-hint">We'll contact you on this number</small>
+              </div>
+
+              <div class="form-group">
+                <label for="city" class="form-label">
+                  City <span class="required">*</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-icon">🏙️</span>
+                  <input 
+                    type="text" 
+                    id="city" 
+                    class="form-input"
+                    placeholder="Hospital city"
+                    required
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Blood Requirement Section -->
+            <div class="form-section-title">
+              <span class="section-icon">🩸</span>
+              <h3>Blood Requirement Details</h3>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group blood-group-selector">
+                <label for="bloodGroup" class="form-label">
+                  Blood Group Required <span class="required">*</span>
+                </label>
+                <div class="blood-group-grid">
+                  <input type="radio" id="req-A+" name="bloodGroup" value="A+" required>
+                  <label for="req-A+" class="blood-type-card">
+                    <span class="blood-icon">🩸</span>
+                    <span class="blood-text">A+</span>
+                  </label>
+
+                  <input type="radio" id="req-A-" name="bloodGroup" value="A-">
+                  <label for="req-A-" class="blood-type-card">
+                    <span class="blood-icon">🩸</span>
+                    <span class="blood-text">A-</span>
+                  </label>
+
+                  <input type="radio" id="req-B+" name="bloodGroup" value="B+">
+                  <label for="req-B+" class="blood-type-card">
+                    <span class="blood-icon">🩸</span>
+                    <span class="blood-text">B+</span>
+                  </label>
+
+                  <input type="radio" id="req-B-" name="bloodGroup" value="B-">
+                  <label for="req-B-" class="blood-type-card">
+                    <span class="blood-icon">🩸</span>
+                    <span class="blood-text">B-</span>
+                  </label>
+
+                  <input type="radio" id="req-O+" name="bloodGroup" value="O+">
+                  <label for="req-O+" class="blood-type-card">
+                    <span class="blood-icon">🩸</span>
+                    <span class="blood-text">O+</span>
+                  </label>
+
+                  <input type="radio" id="req-O-" name="bloodGroup" value="O-">
+                  <label for="req-O-" class="blood-type-card">
+                    <span class="blood-icon">🩸</span>
+                    <span class="blood-text">O-</span>
+                  </label>
+
+                  <input type="radio" id="req-AB+" name="bloodGroup" value="AB+">
+                  <label for="req-AB+" class="blood-type-card">
+                    <span class="blood-icon">🩸</span>
+                    <span class="blood-text">AB+</span>
+                  </label>
+
+                  <input type="radio" id="req-AB-" name="bloodGroup" value="AB-">
+                  <label for="req-AB-" class="blood-type-card">
+                    <span class="blood-icon">🩸</span>
+                    <span class="blood-text">AB-</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="unitsRequired" class="form-label">
+                  Units Required <span class="required">*</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-icon">💉</span>
+                  <input 
+                    type="number" 
+                    id="unitsRequired" 
+                    class="form-input"
+                    min="1" 
+                    max="10" 
+                    placeholder="Number of units"
+                    required
+                  >
+                </div>
+                <small class="input-hint">1 unit = 450 ml of blood</small>
+              </div>
+
+              <div class="form-group">
+                <label for="purpose" class="form-label">
+                  Purpose <span class="required">*</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-icon">📋</span>
+                  <input 
+                    type="text" 
+                    id="purpose" 
+                    class="form-input"
+                    placeholder="E.g., Surgery, Accident, etc."
+                    required
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-actions">
+              <button type="reset" class="btn btn-reset">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Reset Form
+              </button>
+              <button type="submit" id="submitBtn" class="btn btn-submit">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10L9 15L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="btn-text">Submit Request</span>
+              </button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <span class="blood-drop">🩸</span>
+            <span class="logo-text">LifeStream</span>
+          </div>
+          <p>Connecting donors with those in need, saving lives every day.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donor.html">Become a Donor</a></li>
+            <li><a href="request.html">Request Blood</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <ul>
+            <li>📧 info@lifestream.com</li>
+            <li>📞 +91 XXXXXXXXXX</li>
+            <li>🚨 Emergency: 112</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 LifeStream Blood Bank | Built with ❤️ by SAGAR</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/request.js"></script>
+</body>
+
+</html>

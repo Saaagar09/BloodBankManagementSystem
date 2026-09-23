@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Blood Bank System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Background Animation -->
+    <div class="login-background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="login-wrapper">
+        
+        <!-- Header -->
+        <header class="login-header">
+            <a href="index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Home
+            </a>
+        </header>
+
+        <!-- Login Card -->
+        <div class="login-container">
+            
+            <!-- Left Panel - Information -->
+            <div class="login-info">
+                <div class="info-content">
+                    <div class="logo-section">
+                        <div class="logo-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M24 8C24 8 18 14 18 20C18 23.314 20.686 26 24 26C27.314 26 30 23.314 30 20C30 14 24 8 24 8Z" fill="white"/>
+                                <path d="M24 28C19.582 28 16 31.582 16 36V40H32V36C32 31.582 28.418 28 24 28Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <h1>LifeStream</h1>
+                        <p class="tagline">Blood Bank Management System</p>
+                    </div>
+
+                    <div class="info-features">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Secure Platform</h3>
+                                <p>Enterprise-grade security for your data</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="feature-text">
+                                <h3>24/7 Access</h3>
+                                <p>Manage donations anytime, anywhere</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M23 21V19C23 18.1 22.7 17.3 22.2 16.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Community Driven</h3>
+                                <p>Join thousands of life-savers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-section">
+                        <div class="stat">
+                            <h4>5,000+</h4>
+                            <p>Active Donors</p>
+                        </div>
+                        <div class="stat">
+                            <h4>12,000+</h4>
+                            <p>Lives Saved</p>
+                        </div>
+                        <div class="stat">
+                            <h4>100+</h4>
+                            <p>Hospitals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Login Form -->
+            <div class="login-form-panel">
+                <div class="login-box">
+                    
+                    <div class="form-header">
+                        <h2>Welcome Back</h2>
+                        <p>Enter your credentials to access your account</p>
+                    </div>
+
+                    <!-- Alert Message -->
+                    <div id="message" class="message" style="display: none;"></div>
+
+                    <!-- Login Form -->
+                    <form id="loginForm" class="login-form">
+                        
+                        <div class="form-group">
+                            <label for="username" class="form-label">Username</label>
+                            <div class="input-wrapper">
+                                <div class="input-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="currentColor"/>
+                                        <path d="M10 12C4.477 12 0 14.477 0 17.5V20H20V17.5C20 14.477 15.523 12 10 12Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <input
+                                    type="text"
+                                    id="username"
+                                    class="form-input"
+                                    placeholder="Enter your username"
+                                    required
+                                    autocomplete="username"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-wrapper">
+                                <div class="input-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <rect x="3" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M6 9V5C6 2.79086 7.79086 1 10 1C12.2091 1 14 2.79086 14 5V9" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="10" cy="14" r="1" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    class="form-input"
+                                    placeholder="Enter your password"
+                                    required
+                                    autocomplete="current-password"
+                                >
+                                <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                                    <svg class="eye-open" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 3C5 3 1.73 7.11 1 10c.73 2.89 4 7 9 7s8.27-4.11 9-7c-.73-2.89-4-7-9-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" fill="currentColor"/>
+                                        <circle cx="10" cy="10" r="2" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="rememberMe">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-label">Remember me</span>
+                            </label>
+                            <a href="#" class="forgot-link">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" id="loginBtn" class="btn-login">
+                            <span class="btn-text">Sign In</span>
+                            <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+
+                    </form>
+
+                    <div class="form-divider">
+                        <span>or continue with</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button class="social-btn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M19.8 10.2c0-.7-.1-1.4-.2-2H10v3.8h5.5c-.2 1.2-1 2.2-2 2.9v2.5h3.2c1.9-1.7 3-4.3 3-7.2z" fill="#4285F4"/>
+                                <path d="M10 20c2.7 0 4.9-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H1.1v2.6C2.8 17.8 6.2 20 10 20z" fill="#34A853"/>
+                                <path d="M4.4 12c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V5.4H1.1C.4 6.8 0 8.4 0 10s.4 3.2 1.1 4.6l3.3-2.6z" fill="#FBBC05"/>
+                                <path d="M10 3.9c1.5 0 2.8.5 3.9 1.5l2.9-2.9C15 .9 12.7 0 10 0 6.2 0 2.8 2.2 1.1 5.4l3.3 2.6C5.2 5.7 7.4 3.9 10 3.9z" fill="#EA4335"/>
+                            </svg>
+                            <span>Google</span>
+                        </button>
+                    </div>
+
+                    <div class="signup-link">
+                        Don't have an account? 
+                        <a href="register.html">Sign up</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/login.js"></script>
+
+    <script>
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            if (field.type === 'password') {
+                field.type = 'text';
+            } else {
+                field.type = 'password';
+            }
+        }
+    </script>
+
+</body>
+</html>

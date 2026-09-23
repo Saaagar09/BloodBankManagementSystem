@@ -1,0 +1,24 @@
+# Maven build
+target/
+
+# Logs
+*.log
+
+# Compiled files
+*.class
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code (if opened once)
+.vscode/
+
+# OS
+.DS_Store
+
+# Env
+.env
+
+# Keeping Maven wrapper 
+!.mvn/wrapper/maven-wrapper.jar

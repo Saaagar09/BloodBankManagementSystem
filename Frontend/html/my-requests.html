@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blood Requests - Blood Bank System</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/my-requests.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🩸</div>
+                <span class="logo-text">LifeStream</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="donor.html" class="nav-link">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span>Become a Donor</span>
+                </a>
+                <a href="request.html" class="nav-link">
+                    <i class="fas fa-tint"></i>
+                    <span>Request Blood</span>
+                </a>
+            </nav>
+
+            <div class="auth-buttons">
+                <button class="btn-logout" onclick="authAPI.logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-wrapper">
+        
+        <!-- Alert Messages -->
+        <div id="message"></div>
+
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="hero-background">
+                <div class="hero-glow"></div>
+                <div class="hero-particles"></div>
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-icon-wrap">
+                    <div class="hero-icon-pulse"></div>
+                    <div class="hero-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                </div>
+
+                <h1 class="page-title">My Blood Requests</h1>
+                <p class="page-subtitle">Manage and track your blood requests</p>
+            </div>
+        </section>
+
+        <!-- Requests Section -->
+        <section class="content-section">
+            <div class="section-container">
+                <div id="requestsContainer" class="requests-container">
+                    <!-- Requests loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- No Requests State -->
+        <section id="noRequests" class="no-requests" style="display: none;">
+            <div class="empty-state">
+                <div class="empty-icon-wrap">
+                    <div class="empty-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                </div>
+
+                <span class="empty-badge">
+                    <span class="badge-dot"></span>
+                    No Requests
+                </span>
+
+                <h2 class="empty-title">You haven't submitted<br>any blood requests yet</h2>
+
+                <p class="empty-description">
+                    When you need blood assistance, create a request
+                    and keep track of it from here.
+                </p>
+
+                <button type="button" class="create-request-btn" onclick="window.location.href='request.html'">
+                    <i class="fas fa-plus"></i>
+                    <span>Create Blood Request</span>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/api.js"></script>
+    <script src="../js/my-requests.js"></script>
+
+</body>
+
+</html>

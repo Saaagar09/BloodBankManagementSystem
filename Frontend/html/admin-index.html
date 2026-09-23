@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Blood Bank System</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/admin-index.css">
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="background-wrapper">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="portal-container">
+
+        <!-- Logo Section -->
+        <div class="portal-header">
+            <div class="logo-wrapper">
+                <div class="logo-circle">
+                    <div class="logo-icon">🩸</div>
+                    <div class="logo-ring"></div>
+                    <div class="logo-ring-outer"></div>
+                </div>
+            </div>
+            <h1 class="portal-title">
+                <span class="title-main">LifeStream</span>
+                <span class="title-sub">Blood Bank System</span>
+            </h1>
+            <div class="portal-badge">
+                <span class="badge-dot"></span>
+                Admin Portal
+            </div>
+        </div>
+
+        <!-- Welcome Message -->
+        <div class="welcome-section">
+            <h2 class="welcome-title">Welcome Back, Administrator</h2>
+            <p class="welcome-text">Manage donors, blood requests, and system operations</p>
+        </div>
+
+        <!-- Action Cards -->
+        <div class="action-grid">
+
+            <!-- Dashboard Card -->
+            <div class="action-card card-dashboard">
+                <div class="card-glow"></div>
+                <div class="card-icon-wrapper">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Admin Dashboard</h3>
+                    <p class="card-description">View analytics, manage donors and blood requests</p>
+                </div>
+                <a href="admin-dashboard.html" class="card-button">
+                    <span>Open Dashboard</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <div class="card-shine"></div>
+            </div>
+
+            <!-- Logout Card -->
+            <div class="action-card card-logout">
+                <div class="card-glow"></div>
+                <div class="card-icon-wrapper">
+                    <div class="card-icon">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Logout</h3>
+                    <p class="card-description">Safely exit the admin portal</p>
+                </div>
+                <button onclick="handleLogout()" class="card-button">
+                    <span>Sign Out</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="card-shine"></div>
+            </div>
+
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+            <div class="stat-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Access</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <span id="currentTime">Loading...</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <i class="fas fa-check-circle"></i>
+                <span>All Systems Operational</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="portal-footer">
+            <p>© 2024 LifeStream Blood Bank. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy</a>
+                <span>•</span>
+                <a href="#terms">Terms</a>
+                <span>•</span>
+                <a href="#support">Support</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/api.js"></script>
+    <script src="../js/admin-index.js"></script>
+
+</body>
+</html>

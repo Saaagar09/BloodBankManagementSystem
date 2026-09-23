@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Donor - Blood Bank System</title>
+    <link rel="stylesheet" href="../css/my-donor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container">
+
+            <div class="logo">
+                <div class="logo-icon">🩸</div>
+                <span class="logo-text">LifeStream</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="donor.html" class="nav-link">
+                    <i class="fas fa-hand-holding-heart"></i> Become a Donor
+                </a>
+                <a href="request.html" class="nav-link">
+                    <i class="fas fa-tint"></i> Request Blood
+                </a>
+            </nav>
+
+            <div class="auth-buttons">
+                <button class="btn-logout" onclick="authAPI.logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- PAGE -->
+    <div class="page-wrapper">
+
+        <div id="message"></div>
+
+        <!-- HERO -->
+        <div class="page-hero">
+            <div class="hero-glow"></div>
+            <div class="hero-icon-wrap">
+                <div class="hero-icon-pulse"></div>
+                <div class="hero-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+            <h1 class="page-title">Donor Profile</h1>
+            <p class="page-subtitle">Manage your donor information</p>
+        </div>
+
+        <!-- NO DONOR -->
+        <div id="noDonor" class="no-donor" style="display: none;">
+
+            <div class="nd-bg-blobs">
+                <div class="nd-blob nd-blob-1"></div>
+                <div class="nd-blob nd-blob-2"></div>
+                <div class="nd-blob nd-blob-3"></div>
+            </div>
+
+            <div class="nd-content">
+
+                <div class="nd-icon-wrapper">
+                    <div class="nd-icon-ring nd-ring-3"></div>
+                    <div class="nd-icon-ring nd-ring-2"></div>
+                    <div class="nd-icon-ring nd-ring-1"></div>
+                    <div class="nd-icon-core">🩸</div>
+                </div>
+
+                <div class="nd-badge">
+                    <span class="nd-badge-dot"></span>
+                    Not Registered
+                </div>
+
+                <h2>You haven't registered<br>as a donor yet</h2>
+
+                <p>
+                    Every drop counts. Become a blood donor today
+                    and be someone's lifeline when they need it most.
+                </p>
+
+                <div class="nd-stats">
+                    <div class="nd-stat">
+                        <span class="nd-stat-number">4.5M</span>
+                        <span class="nd-stat-label">Lives saved yearly</span>
+                    </div>
+                    <div class="nd-stat-divider"></div>
+                    <div class="nd-stat">
+                        <span class="nd-stat-number">1 Pint</span>
+                        <span class="nd-stat-label">Saves 3 lives</span>
+                    </div>
+                    <div class="nd-stat-divider"></div>
+                    <div class="nd-stat">
+                        <span class="nd-stat-number">2 Sec</span>
+                        <span class="nd-stat-label">Someone needs blood</span>
+                    </div>
+                </div>
+
+                <button type="button" id="becomeDonorBtn">
+                    <span class="nd-btn-icon">🩸</span>
+                    <span class="nd-btn-text">Become a Donor</span>
+                    <span class="nd-btn-arrow">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </span>
+                </button>
+
+                <p class="nd-note">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Safe, secure & takes less than 2 minutes to register
+                </p>
+
+            </div>
+        </div>
+
+        <!-- DONOR DETAILS -->
+        <div id="donorDetails" class="donor-details">
+
+            <div class="card-header">
+                <div class="card-header-left">
+                    <div class="card-header-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div>
+                        <h2>My Donor Profile</h2>
+                        <p class="card-header-sub">Your registered information</p>
+                    </div>
+                </div>
+                <span class="active-badge">
+                    <i class="fas fa-circle"></i> Active Donor
+                </span>
+            </div>
+
+            <div class="donor-info">
+
+                <div class="info-card">
+                    <div class="info-icon-wrap">
+                        <div class="info-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="info-content">
+                        <span class="info-label">Full Name</span>
+                        <span class="info-value" id="displayName">—</span>
+                    </div>
+                    <div class="info-card-glow"></div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon-wrap">
+                        <div class="info-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                    </div>
+                    <div class="info-content">
+                        <span class="info-label">Age</span>
+                        <span class="info-value" id="displayAge">—</span>
+                    </div>
+                    <div class="info-card-glow"></div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon-wrap">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                    </div>
+                    <div class="info-content">
+                        <span class="info-label">City</span>
+                        <span class="info-value" id="displayCity">—</span>
+                    </div>
+                    <div class="info-card-glow"></div>
+                </div>
+
+                <div class="info-card info-card-blood">
+                    <div class="info-icon-wrap">
+                        <div class="info-icon blood-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                    </div>
+                    <div class="info-content">
+                        <span class="info-label">Blood Group</span>
+                        <span class="info-value blood-value" id="displayBloodGroup">—</span>
+                    </div>
+                    <div class="blood-card-bg"></div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon-wrap">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                    </div>
+                    <div class="info-content">
+                        <span class="info-label">Contact Number</span>
+                        <span class="info-value" id="displayContactNumber">—</span>
+                    </div>
+                    <div class="info-card-glow"></div>
+                </div>
+
+            </div>
+
+            <div class="button-group">
+                <button type="button" id="updateBtn">
+                    <i class="fas fa-edit"></i>
+                    <span>Update Profile</span>
+                </button>
+                <button type="button" id="deleteBtn">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>Delete Profile</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- UPDATE FORM -->
+        <div id="updateFormContainer" class="update-form-container" style="display: none;">
+
+            <div class="card-header">
+                <div class="card-header-left">
+                    <div class="card-header-icon">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <div>
+                        <h2>Update Donor</h2>
+                        <p class="card-header-sub">Edit your donor details below</p>
+                    </div>
+                </div>
+            </div>
+
+            <form id="myDonorForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="name">
+                            <i class="fas fa-user"></i> Full Name
+                        </label>
+                        <div class="input-wrap">
+                            <input type="text" id="name" placeholder="Enter your full name">
+                            <div class="input-focus-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">
+                            <i class="fas fa-birthday-cake"></i> Age
+                        </label>
+                        <div class="input-wrap">
+                            <input type="number" id="age" min="18" placeholder="Enter your age">
+                            <div class="input-focus-bar"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="city">
+                            <i class="fas fa-map-marker-alt"></i> City
+                        </label>
+                        <div class="input-wrap">
+                            <input type="text" id="city" placeholder="Enter your city">
+                            <div class="input-focus-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bloodGroup">
+                            <i class="fas fa-tint"></i> Blood Group
+                        </label>
+                        <div class="input-wrap select-wrap">
+                            <select id="bloodGroup">
+                                <option value="">Select Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                            <div class="select-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="input-focus-bar"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="contactNumber">
+                        <i class="fas fa-phone-alt"></i> Contact Number
+                    </label>
+                    <div class="input-wrap">
+                        <input type="number" id="contactNumber" placeholder="Enter your contact number">
+                        <div class="input-focus-bar"></div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit">
+                        <i class="fas fa-save"></i>
+                        <span>Save Changes</span>
+                    </button>
+                    <button type="button" id="cancelBtn">
+                        <i class="fas fa-times"></i>
+                        <span>Cancel</span>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/my-donor.js"></script>
+
+</body>
+</html>
