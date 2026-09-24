@@ -15,7 +15,10 @@ function updateNavigation() {
     <a href="html/login.html" class="btn-auth btn-login">Login</a>
     <a href="html/register.html" class="btn-auth btn-register">Register</a>
 `;
-
+        // HIDE hamburger when not logged in
+        if (mobileMenuToggle) {
+            mobileMenuToggle.style.display = 'none';
+        }
         return;
     }
 
