@@ -5,54 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Blood Requests - Blood Bank System</title>
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/my-requests.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="container">
-            <div class="logo">
-                <div class="logo-icon">🩸</div>
-                <span class="logo-text">LifeStream</span>
-            </div>
-
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                </a>
-                <a href="donor.html" class="nav-link">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <span>Become a Donor</span>
-                </a>
-                <a href="request.html" class="nav-link">
-                    <i class="fas fa-tint"></i>
-                    <span>Request Blood</span>
-                </a>
-            </nav>
-
-            <div class="auth-buttons">
-                <button class="btn-logout" onclick="authAPI.logout()">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </button>
-            </div>
+   <!-- Navbar -->
+<header class="navbar">
+    <div class="container">
+        <div class="logo">
+            <div class="logo-icon">🩸</div>
+            <span class="logo-text">LifeStream</span>
         </div>
+
+        <nav class="nav-menu" id="navMenu">
+            <a href="/" class="nav-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="donor.html" class="nav-link">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>Become a Donor</span>
+            </a>
+            <a href="request.html" class="nav-link">
+                <i class="fas fa-tint"></i>
+                <span>Request Blood</span>
+            </a>
+        </nav>
+
+        <div class="auth-buttons">
+            <button class="btn-logout" onclick="authAPI.logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+</header>
+
+    </div>
     </header>
 
     <!-- Main Content -->
     <main class="page-wrapper">
-        
+
         <!-- Alert Messages -->
         <div id="message"></div>
 

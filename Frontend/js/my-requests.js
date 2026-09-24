@@ -304,3 +304,37 @@ function showErrorMessage(message) {
 
 // Load requests on page load
 loadMyRequests();
+
+
+// ===== MOBILE MENU =====
+function initMobileMenu() {
+    const toggle = document.getElementById('mobileMenuToggle');
+    const menu = document.getElementById('navMenu');
+
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            toggle.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            toggle.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
+
+initMobileMenu();

@@ -122,9 +122,9 @@ const authAPI = {
     },
 
     logout: () => {
-        removeAuthToken();
-        window.location.href = 'login.html';
-    },
+    removeAuthToken();
+    window.location.href = '/html/login.html';
+},
 
 };
 
@@ -263,7 +263,7 @@ function showMessage(elementId, text, type = 'success') {
 function requireAuth() {
     if (!isAuthenticated()) {
         console.log('🔒 Authentication required - redirecting to login');
-        window.location.href = 'login.html';
+        window.location.href = '/html/login.html';
     }
 }
 

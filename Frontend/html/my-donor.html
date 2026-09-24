@@ -14,32 +14,42 @@
 <body>
 
     <!-- NAVBAR -->
-    <header class="navbar">
-        <div class="container">
+<header class="navbar">
+    <div class="container">
 
-            <div class="logo">
-                <div class="logo-icon">🩸</div>
-                <span class="logo-text">LifeStream</span>
-            </div>
+        <div class="logo">
+            <div class="logo-icon">🩸</div>
+            <span class="logo-text">LifeStream</span>
+        </div>
 
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">
-                    <i class="fas fa-home"></i> Home
-                </a>
-                <a href="donor.html" class="nav-link">
-                    <i class="fas fa-hand-holding-heart"></i> Become a Donor
-                </a>
-                <a href="request.html" class="nav-link">
-                    <i class="fas fa-tint"></i> Request Blood
-                </a>
-            </nav>
+        <nav class="nav-menu" id="navMenu">
+            <a href="/" class="nav-link">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="donor.html" class="nav-link">
+                <i class="fas fa-hand-holding-heart"></i> Become a Donor
+            </a>
+            <a href="request.html" class="nav-link">
+                <i class="fas fa-tint"></i> Request Blood
+            </a>
+        </nav>
 
-            <div class="auth-buttons">
-                <button class="btn-logout" onclick="authAPI.logout()">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </button>
-            </div>
+        <div class="auth-buttons">
+            <button class="btn-logout" onclick="authAPI.logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+</header>
 
         </div>
     </header>

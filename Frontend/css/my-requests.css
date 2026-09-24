@@ -474,6 +474,41 @@ body {
 
 
 /* ===================================
+   MOBILE MENU TOGGLE
+   =================================== */
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 24px;
+    height: 3px;
+    background: var(--primary-red);
+    border-radius: 3px;
+    transition: var(--transition-fast);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===================================
    RESPONSIVE DESIGN
    =================================== */
 
@@ -490,78 +525,37 @@ body {
     .logo-icon {
         font-size: 24px;
     }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
     
     .nav-menu {
-        display: none;
-    }
-    
-    .page-hero {
-        padding: 60px 16px 40px;
-    }
-    
-    .page-title {
-        font-size: 36px;
-    }
-    
-    .page-subtitle {
-        font-size: 16px;
-    }
-    
-    .hero-icon {
-        width: 64px;
-        height: 64px;
-        font-size: 24px;
-    }
-    
-    .hero-icon-pulse {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .requests-container {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-    
-    .no-requests {
-        padding: 60px 16px;
-    }
-    
-    .empty-icon {
-        width: 100px;
-        height: 100px;
-        font-size: 40px;
-    }
-    
-    .empty-title {
-        font-size: 24px;
-    }
-    
-    .empty-description {
-        font-size: 15px;
-    }
-    
-    .create-request-btn {
+        position: fixed;
+        left: -100%;
+        top: 64px;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
         width: 100%;
-        justify-content: center;
-        padding: 14px 24px;
+        padding: 1rem 0;
+        gap: 0;
+        box-shadow: var(--shadow-lg);
+        transition: left var(--transition-base);
+        z-index: 999;
+        border-bottom: 1px solid var(--gray-200);
     }
-    
-    .btn-logout span {
-        display: none;
-    }
-}
 
-@media (max-width: 480px) {
-    .page-title {
-        font-size: 28px;
+    .nav-menu.active {
+        left: 0;
     }
-    
-    .auth-buttons {
-        gap: 8px;
-    }
-}
 
+    .nav-link {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--gray-200);
+        width: 100%;
+        justify-content: flex-start;
+    }
 
 /* ===================================
    ACCESSIBILITY
@@ -1141,4 +1135,4 @@ a:focus-visible {
     .donor-details p {
         font-size: 12px;
     }
-}
+} }

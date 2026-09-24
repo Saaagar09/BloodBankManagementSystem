@@ -212,3 +212,50 @@ document.getElementById('deleteBtn').addEventListener('click', async function ()
 
 // Load donor when page opens
 loadMyDonor();
+
+
+
+// ===== MOBILE MENU FUNCTIONALITY =====
+function initMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (!mobileMenuToggle || !navMenu) {
+        return;
+    }
+
+    // Toggle menu
+    mobileMenuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        
+        if (navMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close menu when clicking links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
+
+// Initialize mobile menu
+initMobileMenu();

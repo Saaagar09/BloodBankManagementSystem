@@ -29,15 +29,13 @@ form.addEventListener('submit', async (e) => {
         );
 
         setTimeout(() => {
-
     const user = getCurrentUser();
 
     if (user && user.role === 'ADMIN') {
-        window.location.href = 'admin-index.html';
+        window.location.href = '/html/admin-index.html';
     } else {
-        window.location.href = 'index.html';
+        window.location.href = '/';
     }
-
 }, 1000);
 
     } catch (error) {
