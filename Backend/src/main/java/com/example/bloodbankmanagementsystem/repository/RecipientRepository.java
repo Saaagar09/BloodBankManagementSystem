@@ -17,4 +17,12 @@ public interface RecipientRepository extends JpaRepository<RecipientEntity, Long
     Optional<RecipientEntity> findByIdAndUserIdAndIsDeletedFalse(Long id, Long userId);
 
     List<RecipientEntity> findAllByUserIdAndIsDeletedFalse(Long userId);
+
+    //notification (This gives Spring Data JPA a query equivalent to:SELECT *
+    //FROM recipient
+    //WHERE blood_group = ?
+    //AND city = ?
+    //AND is_deleted = false;)
+
+    List<RecipientEntity> findAllByBloodGroupAndCityAndIsDeletedFalse(String bloodGroup, String city);
 }

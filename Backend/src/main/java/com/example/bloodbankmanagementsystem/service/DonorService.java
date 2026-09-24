@@ -24,12 +24,17 @@ public class DonorService {
     private final DonorRepository donorRepository;
     private final MyUserRepository myUserRepository;
     private final DonorMapper donorMapper;
+    private final NotificationService notificationService;
 
-    public DonorService(DonorRepository donorRepository, MyUserRepository myUserRepository, DonorMapper donorMapper)
+    public DonorService(DonorRepository donorRepository,
+                        MyUserRepository myUserRepository,
+                        DonorMapper donorMapper,
+                        NotificationService notificationService )
     {
         this.donorRepository = donorRepository;
         this.myUserRepository = myUserRepository;
         this.donorMapper = donorMapper;
+        this.notificationService = notificationService;
     }
 
     public DonorDTO addDonor(DonorDTO donorDTO) {
@@ -58,6 +63,9 @@ public class DonorService {
 
         // save to db
         DonorEntity savedDonor = donorRepository.save(donor);
+
+        // Find existing blood requests that match this donor and create notifications for this donor
+        notificationService.createNotificationsForDonor(savedDonor);
 
         // Entity -> DTO (Response)
         return donorMapper.EntityToDto(savedDonor);

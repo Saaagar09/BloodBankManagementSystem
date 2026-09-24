@@ -49,6 +49,7 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
                                 .requestMatchers("/api/auth/register").permitAll()
                                 .requestMatchers("/api/auth/login").permitAll()
+                                .reuestMatchers("/health").permitAll()
 
                                 // DONOR
                                 .requestMatchers(HttpMethod.GET,"/api/bloodbank/Donor/me").hasRole("USER")

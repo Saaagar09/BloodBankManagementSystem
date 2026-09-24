@@ -12,6 +12,7 @@ import com.example.bloodbankmanagementsystem.repository.NotificationRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import com.example.bloodbankmanagementsystem.repository.RecipientRepository;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,16 +26,19 @@ public class NotificationService {
     private final NotificationRepository notificationRepository;
     private final MyUserRepository myUserRepository;
     private final DonorRepository donorRepository;
+    private final RecipientRepository recipientRepository;
 
 
     public NotificationService(
             NotificationRepository notificationRepository,
             MyUserRepository myUserRepository,
-            DonorRepository donorRepository) {
+            DonorRepository donorRepository,
+            RecipientRepository recipientRepository) {
 
         this.notificationRepository = notificationRepository;
         this.myUserRepository = myUserRepository;
         this.donorRepository = donorRepository;
+        this.recipientRepository = recipientRepository;
     }
 
     public List<NotificationResponseDTO> getMyNotifications() {
@@ -76,6 +80,40 @@ public class NotificationService {
         return responseList;
     }
 
+
+
+    public void createNotificationsForDonor(DonorEntity donor) {
+
+        List<RecipientEntity> matchingRequests =
+                recipientRepository
+                        .findAllByBloodGroupAndCityAndIsDeletedFalse(
+                                donor.getBloodGroup(),
+                                donor.getCity()
+                        );
+
+        for (RecipientEntity recipient : matchingRequests) {
+
+            NotificationEntity notification =
+                    new NotificationEntity();
+
+            notification.setDonor(donor);
+            notification.setRecipient(recipient);
+
+            notification.setMessage(
+                    recipient.getName()
+                            + " needs "
+                            + recipient.getBloodGroup()
+                            + " blood in "
+                            + recipient.getCity()
+            );
+
+            notification.setStatus("PENDING");
+
+            notification.setCreatedAt(LocalDateTime.now());
+
+            notificationRepository.save(notification);
+        }
+    }
 
     public void createNotificationsForRequest(RecipientEntity recipient) {
 
